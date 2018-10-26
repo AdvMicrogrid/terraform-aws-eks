@@ -13,18 +13,13 @@ variable "cluster_version" {
 }
 
 variable "config_output_path" {
-  description = "Determines where config files are placed if using configure_kubectl_session and you want config files to land outside the current working directory. Should end in a forward slash / ."
+  description = "Where to save the Kubectl config file (if `write_kubeconfig = true`). Should end in a forward slash `/` ."
   default     = "./"
 }
 
 variable "write_kubeconfig" {
-  description = "Whether to write a kubeconfig file containing the cluster configuration."
+  description = "Whether to write a Kubectl config file containing the cluster configuration. Saved to `config_output_path`."
   default     = true
-}
-
-variable "create_elb_service_linked_role" {
-  description = "Whether to create the service linked role for the elasticloadbalancing service. Without this EKS cannot create ELBs."
-  default     = false
 }
 
 variable "manage_aws_auth" {
